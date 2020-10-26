@@ -80,6 +80,15 @@ module Agents
       event_created_within?(options['expected_receive_period_in_days']) && !recent_error_logs?
     end
 
+    def receive(incoming_events)
+      incoming_events.each do |event|
+        interpolate_with(event) do
+          log event
+          write_data
+        end
+      end
+    end
+
     def check
       write_data
     end
