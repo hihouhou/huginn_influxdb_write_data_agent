@@ -7,7 +7,7 @@ module Agents
 
     description do
       <<-MD
-      The Github notification agent fetches notifications and creates an event by notification.
+      The Influxdb Write Data Agent writes events to an InfluxDB time series database..
 
       `url` is the influxdb url ( ex: http://influxdb:8086).
 
@@ -18,7 +18,7 @@ module Agents
        If `emit_events` is set to `true`, the server response will be emitted as an Event. No data processing
        will be attempted by this Agent, so the Event's "body" value will always be raw text.
 
-      `data` is the equivalent of data-binary in curl command (ex: campaigns_number,region=fr value=1111 1603573200000000000).
+      `data` is the equivalent of data-binary in curl command, in influx line protocol (ex: campaigns_number,region=fr value=1111 1603573200000000000).
 
       `expected_receive_period_in_days` is used to determine if the Agent is working. Set it to the maximum number of days
       that you anticipate passing without this Agent receiving an incoming Event.
