@@ -27,9 +27,10 @@ module Agents
 
     event_description <<-MD
       Events look like this:
-        {
-          "http_status": "204"
-        }
+
+          {
+            "http_status": "204"
+          }
     MD
 
     def default_options
@@ -114,7 +115,7 @@ module Agents
       response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
         http.request(request)
       end
-       
+
       log "request  status : #{response.code}"
   
       if interpolated['debug'] == 'true'
